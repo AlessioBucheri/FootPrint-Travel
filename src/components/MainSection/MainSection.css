@@ -13,20 +13,6 @@
     font-style: normal;
 }
 
-.scroll-arrow {
-    position: fixed;
-    bottom: 0;
-    right: 10px;
-    cursor: pointer;
-    animation: pop-up 1s infinite;
-    color: #2043BF;
-    /* Colore della freccia */
-}
-
-.material-symbols-outlined {
-    font-size: 100px;
-}
-
 @keyframes pop-up {
 
     0%,

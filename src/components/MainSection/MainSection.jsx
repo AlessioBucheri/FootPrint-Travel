@@ -20,9 +20,6 @@ export default function MainSection() {
           </p>
         </div>
       </div>
-      <div className='scroll-arrow' onClick={scrollToNextSection}>
-        <span className='material-symbols-outlined'>stat_minus_1</span>
-      </div>
     </div>
   );
 }
