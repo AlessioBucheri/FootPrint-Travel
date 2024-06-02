@@ -10,7 +10,7 @@ const AirportSelect = ({ placeholder, onChange }) => {
     }
 
     const response = await axios.get(
-      `http://autocomplete.travelpayouts.com/places2?term=${inputValue}&locale=en&type[]=airport`
+      `https://autocomplete.travelpayouts.com/places2?term=${inputValue}&locale=en&type[]=airport`
     );
     const airports = response.data.map((airport) => ({
       value: airport.code,
