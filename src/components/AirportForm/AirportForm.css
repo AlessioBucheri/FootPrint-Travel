@@ -1,0 +1,136 @@
+.airport-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 230px;
+    padding: 20px;
+    height: 100vh;
+    color: #2043BF;
+    font-family: "Lato", sans-serif;
+}
+
+.airport-select {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 500px;
+}
+
+.input-passenger {
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    width: 500px;
+}
+
+.calculate {
+    margin-top: 10px;
+    padding: 10px;
+    color: #2043BF;
+    background-color: #EC662F;
+    border: none;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.3s ease;
+
+}
+
+.calculate:hover {
+    cursor: pointer;
+    background-color: #6FBC5F;
+    color: white;
+}
+
+.ecological-footprint {
+    font-size: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #6FBC5F;
+    color: white;
+    padding: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reset {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    padding: 10px;
+    color: #2043BF;
+}
+
+@media screen and (max-width: 768px) {
+    .airport-form {
+        margin-left: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+    .airport-select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .input-passenger {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .calculate {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    .reset {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .airport-form {
+        margin-left: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+    .airport-select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-passenger {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .calculate {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ecological-footprint {
+        font-size: 50px;
+    }
+
+    .reset {
+        width: 100%;
+    }
+}
