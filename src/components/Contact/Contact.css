@@ -68,3 +68,10 @@ a {
         height: 50px;
     }
 }
+
+@media screen and (max-width: 412px) {
+
+    .contact--list {
+        padding: 0;
+    }
+}
