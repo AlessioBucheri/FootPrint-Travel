@@ -43,8 +43,28 @@ const AirportSelect = ({ placeholder, onChange }) => {
     }));
     callback(airports);
   };
+  // Aggiorna l'input value ogni volta che cambia
+  const handleInputChange = (newValue) => {
+    setInputValue(newValue);
+  };
 
-  // ... (il resto del componente rimane lo stesso)
+  return (
+    <AsyncSelect
+      className='airport-select'
+      placeholder={placeholder}
+      loadOptions={loadOptions}
+      onChange={onChange}
+      onInputChange={handleInputChange} // Aggiungi il gestore per l'input
+      noOptionsMessage={() => "Nessun aeroporto trovato"}
+      filterOption={(option, inputValue) => {
+        // Allow filtering by airport code or name
+        return (
+          option.value.toLowerCase().includes(inputValue.toLowerCase()) ||
+          option.label.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      }}
+    />
+  );
 };
 
 export default AirportSelect;
