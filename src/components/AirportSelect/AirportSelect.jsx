@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from "react";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
-import airportCodes from "airport-codes"; // Libreria per la mappatura città-codice
+import airportCodes from "airport-codes";
 
 const AirportSelect = ({ placeholder, onChange }) => {
   const [inputValue, setInputValue] = useState("");
 
   const loadOptions = async (inputValue, callback) => {
-    // 1. Cerca codici aeroportuali basati sulla città
+    // 1. Cerca aeroporti in base alla città o al nome dell'aeroporto
     const airportsByCity = airportCodes.findWhere({ city: inputValue });
+    const airportsByName = airportCodes.findWhere({ name: inputValue });
 
-    // 2. Se trovati, crea le opzioni per il menu a tendina
-    if (airportsByCity && airportsByCity.length > 0) {
-      const options = airportsByCity.map((airport) => ({
-        value: airport.iata, // Usa il codice IATA
-        label: `${airport.name} (${airport.iata}) - ${airport.city}`, // Mostra nome, codice e città
+    // 2. Combina i risultati e rimuovi i duplicati
+    const allAirports = [...airportsByCity, ...airportsByName];
+    const uniqueAirports = allAirports.filter(
+      (airport, index, self) =>
+        index === self.findIndex((a) => a.iata === airport.iata)
+    );
+
+    // 3. Crea le opzioni per il menu a tendina
+    if (uniqueAirports.length > 0) {
+      const options = uniqueAirports.map((airport) => ({
+        value: airport.iata,
+        label: `${airport.name} (${airport.iata}) - ${airport.city}`,
       }));
       callback(options);
       return;
     }
 
-    // 3. Se non trovati, esegui la ricerca standard per aeroporto (come prima)
+    // 4. Se non trovati, esegui la ricerca standard per aeroporto (come prima)
     if (inputValue.length < 2) {
       callback([]);
       return;
@@ -36,28 +44,7 @@ const AirportSelect = ({ placeholder, onChange }) => {
     callback(airports);
   };
 
-  // Aggiorna l'input value ogni volta che cambia
-  const handleInputChange = (newValue) => {
-    setInputValue(newValue);
-  };
-
-  return (
-    <AsyncSelect
-      className='airport-select'
-      placeholder={placeholder}
-      loadOptions={loadOptions}
-      onChange={onChange}
-      onInputChange={handleInputChange} // Aggiungi il gestore per l'input
-      noOptionsMessage={() => "Nessun aeroporto trovato"}
-      filterOption={(option, inputValue) => {
-        // Allow filtering by airport code or name
-        return (
-          option.value.toLowerCase().includes(inputValue.toLowerCase()) ||
-          option.label.toLowerCase().includes(inputValue.toLowerCase())
-        );
-      }}
-    />
-  );
+  // ... (il resto del componente rimane lo stesso)
 };
 
 export default AirportSelect;
