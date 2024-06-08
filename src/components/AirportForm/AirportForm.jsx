@@ -11,10 +11,16 @@ const AirportForm = () => {
   const [calculationDone, setCalculationDone] = useState(false);
 
   const calculateEcologicalFootprint = async () => {
-    if (!departureAirport || !arrivalAirport) {
-      alert("Seleziona entrambi gli aeroporti");
+    if (
+      !departureAirport ||
+      !departureAirport.value ||
+      !arrivalAirport ||
+      !arrivalAirport.value
+    ) {
+      alert("Seleziona entrambi gli aeroporti.");
       return;
     }
+
     try {
       const params = new URLSearchParams();
       params.append("segments[0][origin]", departureAirport.value);

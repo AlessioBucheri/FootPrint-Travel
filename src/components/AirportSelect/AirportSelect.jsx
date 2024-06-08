@@ -21,6 +21,13 @@ const AirportSelect = ({ placeholder, onChange }) => {
 
   return (
     <AsyncSelect
+      filterOption={(option, inputValue) => {
+        // Consenti il filtraggio per codice aeroportuale o nome
+        return (
+          option.value.toLowerCase().includes(inputValue.toLowerCase()) ||
+          option.label.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      }}
       className='airport-select'
       placeholder={placeholder}
       loadOptions={loadOptions}
