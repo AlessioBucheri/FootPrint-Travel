@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useState } from "react";
 
 import "./Contact.css";
@@ -21,6 +22,10 @@ export default function Contact() {
   };
   return (
     <div id='contact' className='contact-container child'>
+      <Helmet>
+        <title>FootPrint Travel Contact</title>
+        <meta name='contact' content='FootPrint Travel' />
+      </Helmet>
       <div className='contact--container--inner'>
         <h1 className='contact--title'>Keep in Touch!</h1>
         <p className='contact--description'>You can find me here:</p>

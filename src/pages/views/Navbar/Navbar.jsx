@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -10,6 +11,13 @@ export default function Navbar() {
 
   return (
     <div className='navbar'>
+      <Helmet>
+        <title>FootPrint Travel Navbar</title>
+        <meta
+          name='navbar del sito FootPrint Travel'
+          content='FootPrint Travel'
+        />
+      </Helmet>
       <a href='#home'>
         <div className='navbar-logo'>
           <img
@@ -17,7 +25,7 @@ export default function Navbar() {
             src='/footprint-logo.png'
             alt='footprint main logo'
           />
-        </div>{" "}
+        </div>
       </a>
       <div
         className={`nav--hamburger ${isOpen ? "open" : ""}`}
