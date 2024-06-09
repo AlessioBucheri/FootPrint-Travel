@@ -3,6 +3,7 @@ import axios from "axios";
 import AirportSelect from "../AirportSelect/AirportSelect";
 
 import "./AirportForm.css";
+
 const AirportForm = () => {
   const [departureAirport, setDepartureAirport] = useState(null);
   const [arrivalAirport, setArrivalAirport] = useState(null);
@@ -28,18 +29,19 @@ const AirportForm = () => {
       params.append("cabin_class", "economy");
       params.append("passengers", passenger);
 
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}${
-          import.meta.env.VITE_FLIGHT_FOOTPRINT_ENDPOINT
-        }`,
-        {
-          params: params,
-          auth: {
-            username: import.meta.env.VITE_API_KEY,
-            password: "",
-          },
-        }
-      );
+      const url = `${import.meta.env.VITE_API_BASE_URL}${
+        import.meta.env.VITE_FLIGHT_FOOTPRINT_ENDPOINT
+      }`;
+
+      const response = await axios.get(url, {
+        params: params,
+        auth: {
+          username: import.meta.env.VITE_API_KEY,
+          password: "", // La password è vuota
+        },
+      });
+
+      console.log("Response:", response);
       setEcologicalFootprint(response.data.footprint);
       setCalculationDone(true);
     } catch (error) {
@@ -56,7 +58,7 @@ const AirportForm = () => {
   };
 
   return (
-    <div id='airport-form' className='airport-form  child'>
+    <div id='airport-form' className='airport-form child'>
       <h2 className='title'>Calcola Impronta Ecologica</h2>
       <AirportSelect placeholder='From' onChange={setDepartureAirport} />
       <AirportSelect placeholder='To' onChange={setArrivalAirport} />
