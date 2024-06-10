@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div id='about' className='content child'>
       <Helmet>
-        <title>FootPrint Travel About</title>
+        <title>FootPrint Travel - About</title>
         <meta name='about' content='FootPrint Travel' />
       </Helmet>
       <div className='content-inner'>

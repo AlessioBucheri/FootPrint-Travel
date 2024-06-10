@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <div className='navbar'>
       <Helmet>
-        <title>FootPrint Travel Navbar</title>
+        <title>FootPrint Travel - Navbar</title>
         <meta
           name='navbar del sito FootPrint Travel'
           content='FootPrint Travel'

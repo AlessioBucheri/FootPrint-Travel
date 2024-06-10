@@ -23,7 +23,7 @@ export default function Contact() {
   return (
     <div id='contact' className='contact-container child'>
       <Helmet>
-        <title>FootPrint Travel Contact</title>
+        <title>FootPrint Travel - Contact</title>
         <meta name='contact' content='FootPrint Travel' />
       </Helmet>
       <div className='contact--container--inner'>

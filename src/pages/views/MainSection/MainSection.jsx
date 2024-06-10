@@ -12,7 +12,7 @@ export default function MainSection() {
   return (
     <div id='home'>
       <Helmet>
-        <title>FootPrint Travel Main Section</title>
+        <title>FootPrint Travel - Home</title>
         <meta name='main section' content='FootPrint Travel' />
       </Helmet>
       <div className='main-section child'>
