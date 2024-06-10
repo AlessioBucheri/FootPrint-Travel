@@ -64,7 +64,7 @@ export const MainSectionText = styled.div`
   }
 
   @media screen and (max-width: 412px) {
-    top: 60%; /* Adjust top position for better visibility on small screens */
+    top: 50%; /* Adjust top position for better visibility on small screens */
 
   }
 `;
