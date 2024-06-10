@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-
 import {
   Navbar,
   NavbarLogo,
@@ -16,9 +15,25 @@ import logo from "../../../../public/footprint-logo.png";
 
 export default function NavbarComponent() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false); // Aggiungiamo stato per schermo ridotto
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 768); // Puoi definire tu la soglia
+    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenuAfterClick = () => {
+    if (isSmallScreen) {
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -41,13 +56,17 @@ export default function NavbarComponent() {
         <span></span>
       </NavHamburger>
       <NavList className={isOpen ? "open" : ""}>
-        <Link to='/about'>
+        <Link to='/about' onClick={closeMenuAfterClick}>
           <NavItem>ABOUT</NavItem>
         </Link>
-        <Link to='/airport-form' className='active'>
+        <Link
+          to='/airport-form'
+          className='active'
+          onClick={closeMenuAfterClick}
+        >
           <NavItem>TRY IT NOW</NavItem>
         </Link>
-        <Link to='/contact'>
+        <Link to='/contact' onClick={closeMenuAfterClick}>
           <NavItem>CONTACT</NavItem>
         </Link>
       </NavList>
