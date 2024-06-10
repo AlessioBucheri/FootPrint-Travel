@@ -30,7 +30,7 @@ export default function AirportSelect({
         onInputChange={handleInputChange}
         inputValue={inputValue}
         value={value}
-        noOptionsMessage={() => "Nessun aeroporto trovato"}
+        noOptionsMessage={() => "No airports found"}
         cacheOptions
         defaultOptions
         isClearable
