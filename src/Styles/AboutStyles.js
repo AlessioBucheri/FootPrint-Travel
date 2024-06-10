@@ -20,9 +20,8 @@ export const Content = styled.div`
   font-weight: 400;
   font-style: normal;
   margin-left: 230px;
-
-  @media screen and (max-width: 430px) {
-    height: 50vh;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
   }
 `;
 
@@ -41,9 +40,13 @@ export const ContentInner = styled.div`
   }
 
   @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0;
+    margin-left: 0;
+    height: 50vh;
   }
 `;
 
