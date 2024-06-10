@@ -36,7 +36,7 @@ export const MainSection = styled.section`
   font-style: normal;
 
   @media screen and (max-width: 768px) {
-    height: 300px;
+    height: 100vh;
   }
 `;
 
@@ -59,7 +59,7 @@ export const MainSectionText = styled.div`
   @media screen and (max-width: 768px) {
     max-width: 90%;
     padding: 10px;
-    top: 15%;
+    top: 60%;
     right: 5%;
   }
 
