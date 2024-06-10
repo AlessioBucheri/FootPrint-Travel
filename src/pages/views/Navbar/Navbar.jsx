@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -18,7 +19,7 @@ export default function Navbar() {
           content='FootPrint Travel'
         />
       </Helmet>
-      <a href='#home'>
+      <Link to='/'>
         <div className='navbar-logo'>
           <img
             className='logo'
@@ -26,7 +27,7 @@ export default function Navbar() {
             alt='footprint main logo'
           />
         </div>
-      </a>
+      </Link>
       <div
         className={`nav--hamburger ${isOpen ? "open" : ""}`}
         onClick={toggleMenu}
@@ -38,15 +39,15 @@ export default function Navbar() {
         </>
       </div>
       <ul className={`${isOpen ? "open" : ""}`}>
-        <a href='#about'>
+        <Link to='/about'>
           <li>ABOUT</li>
-        </a>
-        <a className='active' href='#airport-form'>
+        </Link>
+        <Link to='/airport-form' className='active'>
           <li>TRY IT NOW</li>
-        </a>
-        <a href='#contact'>
+        </Link>
+        <Link to='/contact'>
           <li>CONTACT</li>
-        </a>
+        </Link>
       </ul>
     </div>
   );

@@ -11,11 +11,12 @@ function App() {
     <Router>
       <Navbar />
       <div className='container'>
-        <MainSection />
-        <About />
-        <AirportForm />
-
-        <Contact />
+        <Routes>
+          <Route path='/' element={<MainSection />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/airport-form' element={<AirportForm />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
       </div>
     </Router>
   );
