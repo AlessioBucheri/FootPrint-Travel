@@ -2,10 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function useAirportSelect() {
-    
-    const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
-    const loadOptions = async (inputValue, callback) => {
+  const loadOptions = async (inputValue, callback) => {
     if (inputValue.length < 2) {
       callback([]);
       return;
@@ -16,7 +15,6 @@ export default function useAirportSelect() {
         `https://autocomplete.travelpayouts.com/places2?term=${inputValue}&locale=it&types[]=city&types[]=airport`
       );
 
-      // Filtra e mappa i risultati per mostrare solo gli aeroporti
       const airports = response.data
         .filter((item) => item.code && item.type === "airport")
         .map((airport) => ({
@@ -31,9 +29,13 @@ export default function useAirportSelect() {
   };
 
   const handleInputChange = (newValue) => {
-    setInputValue(newValue); // Aggiorna lo stato con il nuovo valore di input
-    return newValue; // Ritorna il nuovo valore per la ricerca
+    setInputValue(newValue);
+    return newValue;
   };
 
-  return { inputValue, setInputValue, loadOptions, handleInputChange };
+  const resetInputValue = () => {
+    setInputValue("");
+  };
+
+  return { inputValue, setInputValue, loadOptions, handleInputChange, resetInputValue };
 }

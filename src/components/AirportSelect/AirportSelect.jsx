@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import AsyncSelect from "react-select/async";
 import useAirportSelect from "../../Hooks/AirportSelect/useAirportSelect";
-export default function AirportSelect({ placeholder, onChange, isDeparture }) {
+
+export default function AirportSelect({
+  placeholder,
+  onChange,
+  value,
+  isDeparture,
+  resetInputValue,
+}) {
   const { loadOptions, inputValue, handleInputChange } = useAirportSelect();
 
   return (
@@ -14,12 +21,19 @@ export default function AirportSelect({ placeholder, onChange, isDeparture }) {
         className='airport-select'
         placeholder={placeholder}
         loadOptions={loadOptions}
-        onChange={onChange}
-        onInputChange={handleInputChange} // Gestisce i cambiamenti nell'input
-        inputValue={inputValue} // Usa lo stato per il valore dell'input
+        onChange={(selectedOption) => {
+          onChange(selectedOption);
+          if (!selectedOption) {
+            resetInputValue(); // Reset the input value when the selection is cleared
+          }
+        }}
+        onInputChange={handleInputChange}
+        inputValue={inputValue}
+        value={value}
         noOptionsMessage={() => "Nessun aeroporto trovato"}
-        cacheOptions // Abilita la cache per migliorare le prestazioni
-        defaultOptions // Mostra suggerimenti anche senza input iniziale
+        cacheOptions
+        defaultOptions
+        isClearable
       />
     </div>
   );

@@ -2,20 +2,20 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function useAirportForm() {
-    const [departureAirport, setDepartureAirport] = useState(null);
-    const [arrivalAirport, setArrivalAirport] = useState(null);
-    const [ecologicalFootprint, setEcologicalFootprint] = useState(null);
-    const [passenger, setPassenger] = useState(1);
-    const [calculationDone, setCalculationDone] = useState(false);
+  const [departureAirport, setDepartureAirport] = useState(null);
+  const [arrivalAirport, setArrivalAirport] = useState(null);
+  const [ecologicalFootprint, setEcologicalFootprint] = useState(null);
+  const [passenger, setPassenger] = useState(1);
+  const [calculationDone, setCalculationDone] = useState(false);
 
-    const calculateEcologicalFootprint = async () => {
-        if (
-        !departureAirport ||
-        !departureAirport.value ||
-        !arrivalAirport ||
-        !arrivalAirport.value
-        ) {
-        alert("Seleziona entrambi gli aeroporti.");
+  const calculateEcologicalFootprint = async () => {
+    if (
+      !departureAirport ||
+      !departureAirport.value ||
+      !arrivalAirport ||
+      !arrivalAirport.value
+    ) {
+      alert("Seleziona entrambi gli aeroporti.");
       return;
     }
 
@@ -44,23 +44,28 @@ export default function useAirportForm() {
     }
   };
 
-    const resetForm = () => {
-        setDepartureAirport(null);
-        setArrivalAirport(null);
-        setEcologicalFootprint(null);
-        setPassenger(1);
-        setCalculationDone(false);
-    };
-    return {
-        ecologicalFootprint,
-        passenger,
-        calculationDone,
-        setDepartureAirport,
-        setArrivalAirport,
-        setEcologicalFootprint,
-        setPassenger,
-        setCalculationDone,
-        calculateEcologicalFootprint,
-        resetForm,
-    };
+  const resetForm = (resetDepartureInput, resetArrivalInput) => {
+    setDepartureAirport(null);
+    setArrivalAirport(null);
+    setEcologicalFootprint(null);
+    setPassenger(1);
+    setCalculationDone(false);
+    resetDepartureInput();
+    resetArrivalInput();
+  };
+
+  return {
+    ecologicalFootprint,
+    passenger,
+    calculationDone,
+    departureAirport,
+    arrivalAirport,
+    setDepartureAirport,
+    setArrivalAirport,
+    setEcologicalFootprint,
+    setPassenger,
+    setCalculationDone,
+    calculateEcologicalFootprint,
+    resetForm,
+  };
 }
