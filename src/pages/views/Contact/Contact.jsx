@@ -1,8 +1,16 @@
-import React from "react";
+// src/pages/views/Contact/Contact.jsx
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { useState } from "react";
-
-import "./Contact.css";
+import {
+  ContactContainer,
+  ContactTitle,
+  ContactDescription,
+  ContactList,
+  ContactListItem,
+  ContactListItemImage,
+  CopySuccess,
+  StyledLink,
+} from "../../../Styles/ContactStyles";
 
 export default function Contact() {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -20,55 +28,49 @@ export default function Contact() {
         console.error("Failed to copy: ", err);
       });
   };
+
   return (
-    <div id='contact' className='contact-container child'>
+    <ContactContainer id='contact'>
       <Helmet>
         <title>FootPrint Travel - Contact</title>
         <meta name='contact' content='FootPrint Travel' />
       </Helmet>
-      <div className='contact--container--inner'>
-        <h1 className='contact--title'>Keep in Touch!</h1>
-        <p className='contact--description'>You can find me here:</p>
+      <div>
+        <ContactTitle>Keep in Touch!</ContactTitle>
+        <ContactDescription>You can find me here:</ContactDescription>
       </div>
-      <ol className='contact--list'>
-        <li onClick={copyToClipboard}>
-          <img
-            className='contact--icon'
-            src='/email--icon.png'
-            alt='Email Icon'
-          />
-          alessio.j.1993@gmail.com
-          {copySuccess && <span className='copy-success'>Email copiata!</span>}
-        </li>
-        <a
+      <ContactList>
+        <StyledLink>
+          <ContactListItem onClick={copyToClipboard}>
+            <ContactListItemImage src='/email--icon.png' alt='Email Icon' />
+            alessio.j.1993@gmail.com
+            {copySuccess && <CopySuccess>Email copiata!</CopySuccess>}
+          </ContactListItem>
+        </StyledLink>
+        <StyledLink
           href='https://github.com/AlessioBucheri'
-          target='blank'
-          rel='noreferrer noopen'
+          target='_blank'
+          rel='noreferrer noopener'
         >
-          <li>
-            <img
-              className='contact--icon'
-              src='/github-logo.png'
-              alt='Github Icon'
-            />
+          <ContactListItem>
+            <ContactListItemImage src='/github-logo.png' alt='Github Icon' />
             AlessioBucheri
-          </li>
-        </a>
-        <a
+          </ContactListItem>
+        </StyledLink>
+        <StyledLink
           href='https://www.linkedin.com/in/alessio-bucheri-462721214/'
-          target='blank'
-          rel='noreferrer noopen'
+          target='_blank'
+          rel='noreferrer noopener'
         >
-          <li className='linkedin--contact'>
-            <img
-              className='contact--icon'
+          <ContactListItem>
+            <ContactListItemImage
               src='/linkedin--icon.png'
               alt='Linkedin Icon'
             />
             Alessio Bucheri
-          </li>
-        </a>
-      </ol>
-    </div>
+          </ContactListItem>
+        </StyledLink>
+      </ContactList>
+    </ContactContainer>
   );
 }

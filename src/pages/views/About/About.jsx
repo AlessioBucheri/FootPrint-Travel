@@ -1,20 +1,27 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import "./About.css";
+import {
+  Content,
+  ContentInner,
+  ContentText,
+  Title,
+  Text,
+  ContentImage,
+} from "../../../Styles/AboutStyles";
 
 export default function About() {
   return (
-    <div id='about' className='content child'>
+    <Content id='about' className='content child'>
       <Helmet>
         <title>FootPrint Travel - About</title>
         <meta name='about' content='FootPrint Travel' />
       </Helmet>
-      <div className='content-inner'>
-        <div className='content-text'>
-          <h2 className='title'>
+      <ContentInner className='content-inner'>
+        <ContentText className='content-text'>
+          <Title className='title'>
             What is carbon footprint and how is it measured?
-          </h2>
-          <p className='text'>
+          </Title>
+          <Text className='text'>
             Carbon footprint measurement is a way to track the impact of our
             actions on the environment. In practice, it is an index for
             assessing the environmental impact of our habits, measured in terms
@@ -29,10 +36,14 @@ export default function About() {
             carbon footprint thus requires a thorough analysis of all these
             factors in order to identify potential areas for intervention to
             optimize them.
-          </p>
-        </div>
-        <img className='content-image' src='/footprint-carbon.png' alt='' />
-      </div>
-    </div>
+          </Text>
+        </ContentText>
+        <ContentImage
+          className='content-image'
+          src='/footprint-carbon.png'
+          alt=''
+        />
+      </ContentInner>
+    </Content>
   );
 }
