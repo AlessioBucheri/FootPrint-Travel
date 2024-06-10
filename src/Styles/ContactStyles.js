@@ -12,6 +12,11 @@ export const ContactContainer = styled.div`
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+  
+  @media screen and (max-width: 430px) {
+    padding: 0;
+    height: 50vh;
+}
 `;
 
 export const ContactTitle = styled.h1`
@@ -20,23 +25,25 @@ export const ContactTitle = styled.h1`
   margin-bottom: 20px;
 
   @media screen and (max-width: 430px) {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 `;
 
 export const ContactDescription = styled.p`
   font-size: 2rem;
   text-align: center;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 430px) {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 `;
 
 export const ContactList = styled.ol`
   list-style: none;
   font-size: 30px;
-
+  padding: 0;
+  
   @media screen and (max-width: 430px) {
     font-size: 20px;
     padding: 0;
@@ -47,7 +54,15 @@ export const ContactListItem = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  &:hover {
+    background-color: #6fbc5f;
+    color: white;
+  }
+
+  &.active {
+    background-color: #ec662f;
+  }
 `;
 
 export const ContactListItemImage = styled.img`

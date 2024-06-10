@@ -19,6 +19,11 @@ export const Content = styled.div`
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-left: 230px;
+
+  @media screen and (max-width: 430px) {
+    height: 50vh;
+  }
 `;
 
 export const ContentInner = styled.div`

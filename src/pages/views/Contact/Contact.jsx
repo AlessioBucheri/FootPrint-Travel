@@ -30,7 +30,7 @@ export default function Contact() {
   };
 
   return (
-    <ContactContainer id='contact'>
+    <ContactContainer>
       <Helmet>
         <title>FootPrint Travel - Contact</title>
         <meta name='contact' content='FootPrint Travel' />

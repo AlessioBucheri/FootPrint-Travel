@@ -11,7 +11,7 @@ import {
 
 export default function About() {
   return (
-    <Content id='about' className='content child'>
+    <Content>
       <Helmet>
         <title>FootPrint Travel - About</title>
         <meta name='about' content='FootPrint Travel' />

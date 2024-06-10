@@ -62,6 +62,7 @@
     font-size: 20px;
     padding: 10px;
     color: #2043BF;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -109,13 +110,18 @@
 
     }
 
+    .title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
     .airport-select {
-        width: 100%;
-        margin-bottom: 10px;
+        width: 300px;
+        margin-bottom: 30px;
     }
 
     .input-passenger {
-        width: 100%;
+        width: 300px;
         margin-bottom: 10px;
         padding: 10px;
     }

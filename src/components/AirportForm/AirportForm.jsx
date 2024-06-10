@@ -1,5 +1,4 @@
 import React from "react";
-import helmet from "helmet";
 import AirportSelect from "../AirportSelect/AirportSelect";
 import useAirportForm from "../../Hooks/AirportForm/useAirportForm";
 import useAirportSelect from "../../Hooks/AirportSelect/useAirportSelect";
@@ -29,7 +28,7 @@ export default function AirportForm() {
         <title>FootPrint Travel - Try it now!</title>
         <meta name='airport form' content='FootPrint Travel' />
       </Helmet>
-      <h2 className='title'>Calcola Impronta Ecologica</h2>
+      <h2 className='title'>Discover Your Footprint</h2>
       <AirportSelect
         placeholder='From'
         onChange={setDepartureAirport}
@@ -56,7 +55,7 @@ export default function AirportForm() {
         disabled={calculationDone}
       />
       <button className='calculate' onClick={calculateEcologicalFootprint}>
-        Calcola Impronta Ecologica
+        Calculate
       </button>
       {ecologicalFootprint && (
         <p className='ecological-footprint'>
